@@ -13,6 +13,9 @@ on:
       - .github/workflows/validate-readme-images.yml
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   validate-images:
     runs-on: ubuntu-latest
