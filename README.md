@@ -40,12 +40,12 @@
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=glitch144&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub stats" />
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=glitch144&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+<img height="170" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=glitch144&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="GitHub stats" />
+<img height="170" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=glitch144&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="Top languages" />
 
 <br/>
 
-<img src="https://streak-stats.demolab.com?user=glitch144&theme=tokyonight&hide_border=true" alt="GitHub streak" />
+<img src="https://streak-stats.demolab.com?user=glitch144&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="GitHub streak" />
 
 </div>
 
@@ -55,7 +55,7 @@
 
 <div align="center">
 
-![snake gif](https://github.com/glitch144/glitch144/blob/output/github-contribution-grid-snake-dark.svg)
+![snake gif](https://raw.githubusercontent.com/glitch144/glitch144/output/github-contribution-grid-snake-dark.svg)
 
 </div>
 
