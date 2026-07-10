@@ -4,9 +4,6 @@ on:
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -16,18 +13,27 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Generate snake animation
         uses: Platane/snk@v3
         with:
           github_user_name: glitch144
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            /tmp/dist/github-contribution-grid-snake.svg
+            /tmp/dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Publish snake to output branch
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Update snake assets
+        run: |
+          cp /tmp/dist/github-contribution-grid-snake.svg github-contribution-grid-snake.svg
+          cp /tmp/dist/github-contribution-grid-snake-dark.svg github-contribution-grid-snake-dark.svg
+
+      - name: Commit updated snake assets
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          commit_message: "chore: update contribution snake"
+          file_pattern: "github-contribution-grid-snake.svg github-contribution-grid-snake-dark.svg"
