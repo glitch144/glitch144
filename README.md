@@ -55,7 +55,7 @@
 
 <div align="center">
 
-![snake gif](https://raw.githubusercontent.com/glitch144/glitch144/output/github-contribution-grid-snake-dark.svg)
+![snake gif](./github-contribution-grid-snake-dark.svg)
 
 </div>
 
