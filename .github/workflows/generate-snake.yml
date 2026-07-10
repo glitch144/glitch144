@@ -1,0 +1,39 @@
+name: Generate Contribution Snake
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Generate snake animation
+        uses: Platane/snk@v3
+        with:
+          github_user_name: glitch144
+          outputs: |
+            /tmp/dist/github-contribution-grid-snake.svg
+            /tmp/dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Update snake assets
+        run: |
+          cp /tmp/dist/github-contribution-grid-snake.svg github-contribution-grid-snake.svg
+          cp /tmp/dist/github-contribution-grid-snake-dark.svg github-contribution-grid-snake-dark.svg
+
+      - name: Commit updated snake assets
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: main
+          commit_message: "chore: update contribution snake"
+          file_pattern: "github-contribution-grid-snake.svg github-contribution-grid-snake-dark.svg"
